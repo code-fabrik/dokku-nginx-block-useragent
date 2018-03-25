@@ -11,15 +11,13 @@ app="$1"; verify_app_name "$app"
 eval "$(config_export global)"
 eval "$(config_export app "$app")"
 
-blocked_user_agents="$BLOCKED_USER_AGENTS"
-
 CONFIG_FOLDER="$DOKKU_ROOT/$APP/nginx.conf.d"
 CONFIG_FILE="$CONFIG_FOLDER/ua_block.conf"
 [[ -d "$CONFIG_FOLDER" ]] || mkdir "$CONFIG_FOLDER"
 
-if  [ -z "$blocked_user_agents" ]; then
+if  [ -z "$BLOCKED_USER_AGENTS" ]; then
   dokku_log_info1 "Blocking user agents..."
-  echo "if (\$http_user_agent ~ ($blocked_user_agents) ) {" >> $CONFIG_FILE
+  echo "if (\$http_user_agent ~ ($BLOCKED_USER_AGENTS) ) {" >> $CONFIG_FILE
   echo "  return 403;"                                      >> $CONFIG_FILE
   echo "}"                                                  >> $CONFIG_FILE
   chown dokku:dokku $CONFIG_FILE
