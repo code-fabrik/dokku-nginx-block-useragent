@@ -24,7 +24,7 @@ if  [ -z "$blocked_user_agents" ]; then
   echo "}"                                                  >> $CONFIG_FILE
 else
   dokku_log_info1 "Unblocking user agents..."
-  rm $CONFIG_FILE
+  rm -f $CONFIG_FILE
 fi
 
 chown dokku:dokku $CONFIG_FILE
