@@ -1,0 +1,4 @@
+[plugin]
+description = "Block user agents in Nginx"
+version = "0.1.4"
+[plugin.config]
