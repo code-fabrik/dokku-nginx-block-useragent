@@ -1,4 +1,4 @@
-# Dokku Nginx Blocklist
+# Dokku Nginx Block User Agent
 
 Easily block malicious user agents by setting an environment variable.
 
@@ -6,7 +6,7 @@ Easily block malicious user agents by setting an environment variable.
 
 ```shell
 # on 0.4.x+
-sudo dokku plugin:install https://github.com/code-fabrik/dokku-nginx-blocklist.git
+sudo dokku plugin:install https://github.com/code-fabrik/dokku-nginx-block-useragent.git
 ```
 
 ## Usage
