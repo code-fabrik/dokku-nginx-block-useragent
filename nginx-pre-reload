@@ -17,7 +17,7 @@ CONFIG_FILE="$CONFIG_FOLDER/ua_block.conf"
 
 if  [ ! -z "$BLOCKED_USER_AGENTS" ]; then
   dokku_log_info1 "Blocking user agents..."
-  echo "if (\$http_user_agent ~ ($BLOCKED_USER_AGENTS) ) {" >> $CONFIG_FILE
+  echo "if (\$http_user_agent ~* ($BLOCKED_USER_AGENTS) ) {" >> $CONFIG_FILE
   echo "  return 403;"                                      >> $CONFIG_FILE
   echo "}"                                                  >> $CONFIG_FILE
   chown dokku:dokku $CONFIG_FILE
